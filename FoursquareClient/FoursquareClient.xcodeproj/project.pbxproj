@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		1E0926EA2945E44D0092469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0926E92945E44D0092469E /* AppDelegate.swift */; };
 		1E0926EC2945E44D0092469E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0926EB2945E44D0092469E /* SceneDelegate.swift */; };
-		1E0926EE2945E44D0092469E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0926ED2945E44D0092469E /* ViewController.swift */; };
 		1E0926F12945E44D0092469E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926EF2945E44D0092469E /* Main.storyboard */; };
 		1E0926F32945E44F0092469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926F22945E44F0092469E /* Assets.xcassets */; };
 		1E0926F62945E44F0092469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926F42945E44F0092469E /* LaunchScreen.storyboard */; };
 		1E0927012945E44F0092469E /* FoursquareClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927002945E44F0092469E /* FoursquareClientTests.swift */; };
 		1E09270B2945E44F0092469E /* FoursquareClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09270A2945E44F0092469E /* FoursquareClientUITests.swift */; };
 		1E09270D2945E44F0092469E /* FoursquareClientUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09270C2945E44F0092469E /* FoursquareClientUITestsLaunchTests.swift */; };
+		1E09271C2945E5A90092469E /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09271B2945E5A90092469E /* VenueListViewController.swift */; };
+		1E09271E2945E6A50092469E /* VenueListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09271D2945E6A50092469E /* VenueListViewModel.swift */; };
+		1E0927212945E8860092469E /* VenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927202945E8860092469E /* VenueCollectionViewCell.swift */; };
+		1E0927232945EB780092469E /* VenueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0927222945EB780092469E /* VenueCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +42,6 @@
 		1E0926E62945E44D0092469E /* FoursquareClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoursquareClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E0926E92945E44D0092469E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E0926EB2945E44D0092469E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E0926ED2945E44D0092469E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1E0926F02945E44D0092469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E0926F22945E44F0092469E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E0926F52945E44F0092469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		1E0927062945E44F0092469E /* FoursquareClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoursquareClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E09270A2945E44F0092469E /* FoursquareClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareClientUITests.swift; sourceTree = "<group>"; };
 		1E09270C2945E44F0092469E /* FoursquareClientUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareClientUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E09271B2945E5A90092469E /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
+		1E09271D2945E6A50092469E /* VenueListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewModel.swift; sourceTree = "<group>"; };
+		1E0927202945E8860092469E /* VenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCollectionViewCell.swift; sourceTree = "<group>"; };
+		1E0927222945EB780092469E /* VenueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +105,10 @@
 		1E0926E82945E44D0092469E /* FoursquareClient */ = {
 			isa = PBXGroup;
 			children = (
+				1E09271F2945E8700092469E /* Views */,
+				1E0927192945E58E0092469E /* Stories */,
 				1E0926E92945E44D0092469E /* AppDelegate.swift */,
 				1E0926EB2945E44D0092469E /* SceneDelegate.swift */,
-				1E0926ED2945E44D0092469E /* ViewController.swift */,
 				1E0926EF2945E44D0092469E /* Main.storyboard */,
 				1E0926F22945E44F0092469E /* Assets.xcassets */,
 				1E0926F42945E44F0092469E /* LaunchScreen.storyboard */,
@@ -125,6 +132,32 @@
 				1E09270C2945E44F0092469E /* FoursquareClientUITestsLaunchTests.swift */,
 			);
 			path = FoursquareClientUITests;
+			sourceTree = "<group>";
+		};
+		1E0927192945E58E0092469E /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				1E09271A2945E5950092469E /* VenueList */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		1E09271A2945E5950092469E /* VenueList */ = {
+			isa = PBXGroup;
+			children = (
+				1E09271B2945E5A90092469E /* VenueListViewController.swift */,
+				1E09271D2945E6A50092469E /* VenueListViewModel.swift */,
+			);
+			path = VenueList;
+			sourceTree = "<group>";
+		};
+		1E09271F2945E8700092469E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1E0927202945E8860092469E /* VenueCollectionViewCell.swift */,
+				1E0927222945EB780092469E /* VenueCollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +266,7 @@
 			files = (
 				1E0926F62945E44F0092469E /* LaunchScreen.storyboard in Resources */,
 				1E0926F32945E44F0092469E /* Assets.xcassets in Resources */,
+				1E0927232945EB780092469E /* VenueCollectionViewCell.xib in Resources */,
 				1E0926F12945E44D0092469E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,8 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E0926EE2945E44D0092469E /* ViewController.swift in Sources */,
 				1E0926EA2945E44D0092469E /* AppDelegate.swift in Sources */,
+				1E09271C2945E5A90092469E /* VenueListViewController.swift in Sources */,
+				1E0927212945E8860092469E /* VenueCollectionViewCell.swift in Sources */,
+				1E09271E2945E6A50092469E /* VenueListViewModel.swift in Sources */,
 				1E0926EC2945E44D0092469E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
