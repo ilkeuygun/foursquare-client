@@ -32,6 +32,7 @@
 		1E092747294642790092469E /* VenuesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E092746294642790092469E /* VenuesRouter.swift */; };
 		1E09274A2946432B0092469E /* VenueDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927492946432B0092469E /* VenueDetailsViewController.swift */; };
 		1E09274C2946437B0092469E /* VenueDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09274B2946437B0092469E /* VenueDetailsViewModel.swift */; };
+		1E09274E2946609D0092469E /* FCVenueAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09274D2946609D0092469E /* FCVenueAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		1E092746294642790092469E /* VenuesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesRouter.swift; sourceTree = "<group>"; };
 		1E0927492946432B0092469E /* VenueDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailsViewController.swift; sourceTree = "<group>"; };
 		1E09274B2946437B0092469E /* VenueDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailsViewModel.swift; sourceTree = "<group>"; };
+		1E09274D2946609D0092469E /* FCVenueAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVenueAnnotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1E0927392945FC010092469E /* FCVenue.swift */,
+				1E09274D2946609D0092469E /* FCVenueAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				1E0927352945FA500092469E /* VenuesQuery.swift in Sources */,
 				1E0927332945FA320092469E /* HTTPTask.swift in Sources */,
 				1E092740294637F70092469E /* VenueDetailsResponse.swift in Sources */,
+				1E09274E2946609D0092469E /* FCVenueAnnotation.swift in Sources */,
 				1E0926EA2945E44D0092469E /* AppDelegate.swift in Sources */,
 				1E09274C2946437B0092469E /* VenueDetailsViewModel.swift in Sources */,
 				1E0927372945FB550092469E /* VenuesService.swift in Sources */,
