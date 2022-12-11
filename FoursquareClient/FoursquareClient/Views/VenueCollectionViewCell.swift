@@ -36,4 +36,14 @@ public final class VenueCollectionViewCell: UICollectionViewCell {
       nameLabel.text = viewModel.name
     }
   }
+  
+  public override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+    setNeedsLayout()
+    layoutIfNeeded()
+    let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+    var frame = layoutAttributes.frame
+    frame.size.height = ceil(size.height)
+    layoutAttributes.frame = frame
+    return layoutAttributes
+  }
 }

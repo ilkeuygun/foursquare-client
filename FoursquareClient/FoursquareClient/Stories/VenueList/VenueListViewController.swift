@@ -28,7 +28,7 @@ public final class VenueListViewController: UIViewController {
     super.viewDidLoad()
     venuesCollectionView.dataSource = self
     venuesCollectionView.delegate = self
-    venuesCollectionView.register(UINib(nibName: "VehicleCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VehicleCollectionViewCell")
+    venuesCollectionView.register(UINib(nibName: "VenueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VenueCollectionViewCell")
     viewModel.fetchVenuesAround()
   }
 }

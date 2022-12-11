@@ -11,6 +11,8 @@ import Foundation
 public final class NetworkInterceptor: RequestInterceptor {
   public init () {}
   
+  private let foursquare_api_key = "fsq3BnHqvz7KenGQ8mjrTmKBgLiTDDF0OKe+ne0FOQ+4f4c="
+  
   public func adapt(
     _ urlRequest: URLRequest,
     for session: Session,
@@ -18,7 +20,8 @@ public final class NetworkInterceptor: RequestInterceptor {
   ){
     var urlRequest = urlRequest
     
-    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+    urlRequest.setValue(foursquare_api_key, forHTTPHeaderField: "Authorization")
     completion(.success(urlRequest))
   }
 }
