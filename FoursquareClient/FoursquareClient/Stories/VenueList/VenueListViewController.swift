@@ -9,6 +9,10 @@ import UIKit
 
 public final class VenueListViewController: UIViewController {
   
+  enum Route: String {
+    case details
+  }
+  
   @IBOutlet weak var venuesCollectionView: UICollectionView!
   @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   
@@ -57,7 +61,9 @@ extension VenueListViewController: VenueListViewModelDelegate {
   }
   
   func didFetchVenueDetails(venueDetails: VenueDetailsResponse) {
-    router.routeToDetails(from: self, parameters: venueDetails)
+    router.route(to: Route.details.rawValue,
+                 from: self,
+                 parameters: venueDetails)
   }
 }
 

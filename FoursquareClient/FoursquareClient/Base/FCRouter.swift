@@ -9,7 +9,8 @@ import Foundation
 import UIKit
 
 protocol FCRouter {
-  func routeToDetails(
+  func route(
+    to routeID: String,
     from context: UIViewController,
     parameters: VenueDetailsResponse
   )

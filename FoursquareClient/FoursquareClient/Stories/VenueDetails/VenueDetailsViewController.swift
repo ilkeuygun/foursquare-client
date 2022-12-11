@@ -11,7 +11,7 @@ public final class VenueDetailsViewController: UIViewController {
   
   @IBOutlet weak var contentView: UIView!
   
-  private let viewModel: VenueDetailsViewModel
+  var viewModel: VenueDetailsViewModel?
   
   public init(viewModel: VenueDetailsViewModel) {
     self.viewModel = viewModel
@@ -19,12 +19,11 @@ public final class VenueDetailsViewController: UIViewController {
   }
   
   required init?(coder: NSCoder) {
-    self.viewModel = VenueDetailsViewModel(venueDetails: VenueDetailsResponse(fsq_id: "", name: "", location: Location(address: "", country: "", formatted_address: "", region: "")))
     super.init(coder: coder)    
   }
   
   public override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationItem.title = viewModel.venueDetails.name
+    self.navigationItem.title = viewModel?.venueDetails.name
   }
 }

@@ -60,7 +60,7 @@
         <!--Venue Details View Controller-->
         <scene sceneID="bBP-Ra-10e">
             <objects>
-                <viewController id="Q6t-X3-4Bb" customClass="VenueDetailsViewController" customModule="FoursquareClient" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VenueDetails" id="Q6t-X3-4Bb" customClass="VenueDetailsViewController" customModule="FoursquareClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0BF-UJ-1yT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -15,12 +15,15 @@ public final class VenuesRouter: FCRouter {
     self.viewModel = viewModel
   }
   
-  func routeToDetails(
+  func route(
+    to routeID: String,
     from context: UIViewController,
     parameters: VenueDetailsResponse)
   {
     let detailsViewModel = VenueDetailsViewModel(venueDetails: parameters)
-    let detailsViewController = VenueDetailsViewController(viewModel: detailsViewModel)
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    guard let detailsViewController = storyboard.instantiateViewController(withIdentifier: "VenueDetails") as? VenueDetailsViewController else { return }
+    detailsViewController.viewModel = detailsViewModel
     context.navigationController?.pushViewController(detailsViewController, animated: true)
   }
 }
