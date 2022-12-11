@@ -55,6 +55,7 @@
 		1E09271D2945E6A50092469E /* VenueListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewModel.swift; sourceTree = "<group>"; };
 		1E0927202945E8860092469E /* VenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCollectionViewCell.swift; sourceTree = "<group>"; };
 		1E0927222945EB780092469E /* VenueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueCollectionViewCell.xib; sourceTree = "<group>"; };
+		1E0927272945ED3D0092469E /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Networking; path = ../Networking; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 		1E0926DD2945E44D0092469E = {
 			isa = PBXGroup;
 			children = (
+				1E0927262945ED3D0092469E /* Packages */,
 				1E0926E82945E44D0092469E /* FoursquareClient */,
 				1E0926FF2945E44F0092469E /* FoursquareClientTests */,
 				1E0927092945E44F0092469E /* FoursquareClientUITests */,
@@ -158,6 +160,14 @@
 				1E0927222945EB780092469E /* VenueCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		1E0927262945ED3D0092469E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				1E0927272945ED3D0092469E /* Networking */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
