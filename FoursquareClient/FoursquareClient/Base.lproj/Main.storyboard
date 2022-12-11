@@ -55,7 +55,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-220"/>
+            <point key="canvasLocation" x="598" y="-220"/>
+        </scene>
+        <!--Venue Details View Controller-->
+        <scene sceneID="bBP-Ra-10e">
+            <objects>
+                <viewController id="Q6t-X3-4Bb" customClass="VenueDetailsViewController" customModule="FoursquareClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0BF-UJ-1yT">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkw-Jx-5w8">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YW5-Uo-NZf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YW5-Uo-NZf" firstAttribute="trailing" secondItem="Gkw-Jx-5w8" secondAttribute="trailing" id="GFC-iJ-gi1"/>
+                            <constraint firstItem="Gkw-Jx-5w8" firstAttribute="leading" secondItem="YW5-Uo-NZf" secondAttribute="leading" id="Rzg-p7-YpN"/>
+                            <constraint firstItem="Gkw-Jx-5w8" firstAttribute="top" secondItem="YW5-Uo-NZf" secondAttribute="top" id="U8t-df-PPb"/>
+                            <constraint firstItem="YW5-Uo-NZf" firstAttribute="bottom" secondItem="Gkw-Jx-5w8" secondAttribute="bottom" id="wjy-Tc-Do7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="Gkw-Jx-5w8" id="8Zo-sa-Qxc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dwN-La-r1E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1566" y="-220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fw6-TC-deS">

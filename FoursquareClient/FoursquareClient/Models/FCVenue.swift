@@ -9,9 +9,13 @@ import Foundation
 
 public class FCVenue: NSObject {
   
+  public let id: String
   public let name: String
+  public let link: String
   
-  public init(name: String) {
+  public init(id: String, name: String, link: String) {
+    self.id = id
     self.name = name
+    self.link = link
   }
 }

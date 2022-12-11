@@ -10,7 +10,8 @@ import Foundation
 
 protocol VenueListViewModelDelegate: AnyObject {
   func didFetchVenues()
-  func receivedErrorWhileFetchingVenues()
+  func didFetchVenueDetails(venueDetails: VenueDetailsResponse)
+  func receivedError(with description: String)
 }
 
 public final class VenueListViewModel: NSObject {
@@ -31,18 +32,29 @@ public final class VenueListViewModel: NSObject {
   
   public func venueViewModel(index: Int) -> VenueCellViewModel? {
     guard index < venueList?.count ?? 0, let venue = venueList?[index] else { return nil }
-    return VenueCellViewModel(name: venue.name, showsDarkBackground: index % 2 == 0)
+    return VenueCellViewModel(fsqId: venue.id, name: venue.name, link: venue.link, showsDarkBackground: index % 2 == 0)
   }
   
   public func fetchVenuesAround() {
     FCVenuesService.shared.getVenues(latitude: userLatitude ?? 40.686, longitude: userLongitude ?? 29.916) { [weak self] venueList, errorCode in
       guard let self = self else { return }
       guard let venueList = venueList, !venueList.isEmpty else {
-        self.delegate?.receivedErrorWhileFetchingVenues()
+        self.delegate?.receivedError(with: "Venues cannot be fetched right now. Please try again later.")
         return
       }
       self.venueList = venueList
       self.delegate?.didFetchVenues()
+    }
+  }
+  
+  public func fetchDetails(of link: String) {
+    FCVenuesService.shared.getVenueDetails(of: link) { [weak self] response, errorCode in
+      guard let self = self else { return }
+      guard let response = response else {
+        self.delegate?.receivedError(with: "Venue details cannot be fetched right now. Please try again later.")
+        return
+      }
+      self.delegate?.didFetchVenueDetails(venueDetails: response)
     }
   }
 }

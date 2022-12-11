@@ -9,11 +9,15 @@ import Foundation
 import UIKit
 
 public struct VenueCellViewModel {
+  let fsqId: String
   let name: String
+  let link: String
   let showsDarkBackground: Bool
   
-  public init(name: String, showsDarkBackground: Bool) {
+  public init(fsqId: String, name: String, link: String, showsDarkBackground: Bool) {
+    self.fsqId = fsqId
     self.name = name
+    self.link = link
     self.showsDarkBackground = showsDarkBackground
   }
 }

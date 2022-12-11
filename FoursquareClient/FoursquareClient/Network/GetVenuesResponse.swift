@@ -13,5 +13,5 @@ public struct GetVenuesResponse: Decodable {
 public struct Venue: Codable {
   public let fsq_id: String
   public let name: String
+  public let link: String
 }
-
