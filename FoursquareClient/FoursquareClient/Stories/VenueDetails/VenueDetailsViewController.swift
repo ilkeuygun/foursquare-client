@@ -12,6 +12,10 @@ public final class VenueDetailsViewController: UIViewController {
   
   @IBOutlet weak var contentView: UIView!
   @IBOutlet weak var mapView: MKMapView!
+  @IBOutlet weak var categoryTitleLabel: UILabel!
+  @IBOutlet weak var categoryValueLabel: UILabel!
+  @IBOutlet weak var addressTitleLabel: UILabel!
+  @IBOutlet weak var addressValueLabel: UILabel!
   
   var viewModel: VenueDetailsViewModel?
   
@@ -27,10 +31,10 @@ public final class VenueDetailsViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationItem.title = viewModel?.venueDetails.name
-    prepareMap()
+    prepareSubviews()
   }
   
-  private func prepareMap() {
+  private func prepareSubviews() {
     mapView.isUserInteractionEnabled = false
     guard let venueLat = viewModel?.venueDetails.geocodes.main.latitude,
           let venueLon = viewModel?.venueDetails.geocodes.main.longitude else { return }
@@ -40,5 +44,14 @@ public final class VenueDetailsViewController: UIViewController {
     self.mapView.setRegion(adjustedRegion, animated: true)
     let venueAnnotation = FCVenueAnnotation(coordinate: venueCoordinate)
     self.mapView.addAnnotation(venueAnnotation)
+    
+    categoryTitleLabel.text = "Category:"
+    categoryTitleLabel.font = .boldSystemFont(ofSize: 17)
+    categoryValueLabel.text = viewModel?.venueDetails.categories.first?.name
+    
+    addressTitleLabel.text = "Address:"
+    addressTitleLabel.font = .boldSystemFont(ofSize: 17)
+    addressValueLabel.text = viewModel?.venueDetails.location.formatted_address
+    addressValueLabel.numberOfLines = 0
   }
 }

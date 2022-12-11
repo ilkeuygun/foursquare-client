@@ -13,6 +13,7 @@ public struct VenueDetailsResponse: Decodable {
   public let name: String
   public let location: Location
   public let geocodes: Geocode
+  public let categories: [Category]
 }
 
 public struct Location: Decodable {
@@ -29,4 +30,8 @@ public struct Geocode: Decodable {
 public struct Geolocation: Decodable {
   public let latitude: Double
   public let longitude: Double
+}
+
+public struct Category: Decodable {
+  public let name: String
 }

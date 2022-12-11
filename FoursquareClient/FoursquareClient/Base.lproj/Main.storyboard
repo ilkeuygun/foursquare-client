@@ -75,7 +75,51 @@
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkw-Jx-5w8">
                                 <rect key="frame" x="0.0" y="231" width="393" height="587"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRT-3s-el3">
+                                        <rect key="frame" x="16" y="32" width="100" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="jVX-6r-ai6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tr8-1a-aaD">
+                                        <rect key="frame" x="124" y="32" width="253" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ve-Mq-rYT">
+                                        <rect key="frame" x="16" y="85" width="100" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Kwi-tT-bsW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwv-He-hlX">
+                                        <rect key="frame" x="124" y="85" width="253" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="kwv-He-hlX" firstAttribute="centerY" secondItem="2ve-Mq-rYT" secondAttribute="centerY" id="9H0-ap-LRK"/>
+                                    <constraint firstAttribute="trailing" secondItem="kwv-He-hlX" secondAttribute="trailing" constant="16" id="COT-Yn-LoA"/>
+                                    <constraint firstItem="kwv-He-hlX" firstAttribute="leading" secondItem="2ve-Mq-rYT" secondAttribute="trailing" constant="8" id="Fud-CL-aUu"/>
+                                    <constraint firstItem="2ve-Mq-rYT" firstAttribute="leading" secondItem="Gkw-Jx-5w8" secondAttribute="leading" constant="16" id="GxM-dc-pUK"/>
+                                    <constraint firstItem="oRT-3s-el3" firstAttribute="top" secondItem="Gkw-Jx-5w8" secondAttribute="top" constant="32" id="MlM-Qa-Yfl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tr8-1a-aaD" secondAttribute="trailing" constant="16" id="My0-KK-tP9"/>
+                                    <constraint firstItem="Tr8-1a-aaD" firstAttribute="centerY" secondItem="oRT-3s-el3" secondAttribute="centerY" id="PIS-Ou-REr"/>
+                                    <constraint firstItem="oRT-3s-el3" firstAttribute="leading" secondItem="Gkw-Jx-5w8" secondAttribute="leading" constant="16" id="YFN-Lf-Js1"/>
+                                    <constraint firstItem="2ve-Mq-rYT" firstAttribute="top" secondItem="oRT-3s-el3" secondAttribute="bottom" constant="32" id="wLF-Be-rvP"/>
+                                    <constraint firstItem="Tr8-1a-aaD" firstAttribute="leading" secondItem="oRT-3s-el3" secondAttribute="trailing" constant="8" id="zHM-fK-6AU"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YW5-Uo-NZf"/>
@@ -91,6 +135,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressTitleLabel" destination="2ve-Mq-rYT" id="sta-5J-7fb"/>
+                        <outlet property="addressValueLabel" destination="kwv-He-hlX" id="DT5-Eo-39n"/>
+                        <outlet property="categoryTitleLabel" destination="oRT-3s-el3" id="LiB-Bl-ncH"/>
+                        <outlet property="categoryValueLabel" destination="Tr8-1a-aaD" id="4kv-Ea-0sz"/>
                         <outlet property="contentView" destination="Gkw-Jx-5w8" id="8Zo-sa-Qxc"/>
                         <outlet property="mapView" destination="YZg-f7-XcS" id="4Ip-vY-o1o"/>
                     </connections>
