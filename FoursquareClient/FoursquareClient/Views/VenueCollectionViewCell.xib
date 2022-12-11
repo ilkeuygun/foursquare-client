@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,32 +17,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="392" height="134"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Gc-D1-Ooo">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="134"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-b6-dEy">
-                                <rect key="frame" x="16" y="16" width="360" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Uwm-IB-jM1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6B-b6-dEy">
+                        <rect key="frame" x="16" y="16" width="360" height="21"/>
                         <constraints>
-                            <constraint firstItem="N6B-b6-dEy" firstAttribute="top" secondItem="2Gc-D1-Ooo" secondAttribute="top" constant="16" id="UOl-je-t2Q"/>
-                            <constraint firstAttribute="trailing" secondItem="N6B-b6-dEy" secondAttribute="trailing" constant="16" id="gcE-ll-mvV"/>
-                            <constraint firstItem="N6B-b6-dEy" firstAttribute="leading" secondItem="2Gc-D1-Ooo" secondAttribute="leading" constant="16" id="jvR-mc-LKo"/>
+                            <constraint firstAttribute="height" constant="21" id="Uwm-IB-jM1"/>
                         </constraints>
-                    </view>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="2Gc-D1-Ooo" secondAttribute="trailing" id="TKC-IB-VkV"/>
-                    <constraint firstItem="2Gc-D1-Ooo" firstAttribute="leading" secondItem="mrl-0b-wz5" secondAttribute="leading" id="VZA-WN-3Nc"/>
-                    <constraint firstAttribute="bottom" secondItem="2Gc-D1-Ooo" secondAttribute="bottom" id="jCU-Td-Cjz"/>
-                    <constraint firstItem="2Gc-D1-Ooo" firstAttribute="top" secondItem="mrl-0b-wz5" secondAttribute="top" id="yRa-6N-9i6"/>
+                    <constraint firstAttribute="trailing" secondItem="N6B-b6-dEy" secondAttribute="trailing" constant="16" id="9c2-4B-Cfs"/>
+                    <constraint firstItem="N6B-b6-dEy" firstAttribute="top" secondItem="mrl-0b-wz5" secondAttribute="top" constant="16" id="Mbd-SI-OL0"/>
+                    <constraint firstItem="N6B-b6-dEy" firstAttribute="leading" secondItem="mrl-0b-wz5" secondAttribute="leading" constant="16" id="cAp-PX-ZxQ"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="392" height="134"/>
@@ -53,9 +40,4 @@
             <point key="canvasLocation" x="152.67175572519082" y="35.211267605633807"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

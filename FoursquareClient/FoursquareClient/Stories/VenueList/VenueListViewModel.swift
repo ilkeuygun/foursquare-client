@@ -31,7 +31,7 @@ public final class VenueListViewModel: NSObject {
   
   public func venueViewModel(index: Int) -> VenueCellViewModel? {
     guard index < venueList?.count ?? 0, let venue = venueList?[index] else { return nil }
-    return VenueCellViewModel(name: venue.name)
+    return VenueCellViewModel(name: venue.name, showsDarkBackground: index % 2 == 0)
   }
   
   public func fetchVenuesAround() {

@@ -10,6 +10,7 @@ import UIKit
 public final class VenueListViewController: UIViewController {
   
   @IBOutlet weak var venuesCollectionView: UICollectionView!
+  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
   
   private let viewModel: VenueListViewModel
   
@@ -26,6 +27,9 @@ public final class VenueListViewController: UIViewController {
   
   public override func viewDidLoad() {
     super.viewDidLoad()
+    self.navigationItem.title = "Venues Around"
+    loadingIndicator.isHidden = false
+    loadingIndicator.startAnimating()
     venuesCollectionView.dataSource = self
     venuesCollectionView.delegate = self
     venuesCollectionView.register(UINib(nibName: "VenueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VenueCollectionViewCell")
@@ -37,6 +41,8 @@ public final class VenueListViewController: UIViewController {
 extension VenueListViewController: VenueListViewModelDelegate {
   
   func didFetchVenues() {
+    loadingIndicator.stopAnimating()
+    loadingIndicator.isHidden = true
     venuesCollectionView.reloadData()
   }
   
@@ -79,7 +85,7 @@ extension VenueListViewController: UICollectionViewDelegateFlowLayout {
     sizeForItemAt indexPath: IndexPath
   ) -> CGSize {
     let width = (collectionView.frame.size.width - 32)
-    return CGSize(width: width, height: 120)
+    return CGSize(width: width, height: 48)
   }
 }
 

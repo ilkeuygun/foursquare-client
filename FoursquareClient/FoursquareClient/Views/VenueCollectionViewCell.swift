@@ -10,9 +10,11 @@ import UIKit
 
 public struct VenueCellViewModel {
   let name: String
+  let showsDarkBackground: Bool
   
-  public init(name: String) {
+  public init(name: String, showsDarkBackground: Bool) {
     self.name = name
+    self.showsDarkBackground = showsDarkBackground
   }
 }
 
@@ -23,15 +25,14 @@ public final class VenueCollectionViewCell: UICollectionViewCell {
   public var viewModel: VenueCellViewModel? {
     didSet {
       guard let viewModel = viewModel else {
-        // TODO (Ilke): Display skeleton animation
         return
       }
-      // TODO (Ilke): Stop skeleton animation
       backgroundColor = .clear
-      contentView.backgroundColor = .lightGray
+      contentView.backgroundColor = viewModel.showsDarkBackground ? .lightGray : .white
       contentView.layer.cornerRadius = CGFloat(8)
       
       nameLabel.textColor = .black
+      nameLabel.backgroundColor = .clear
       nameLabel.font = .systemFont(ofSize: CGFloat(16), weight: .semibold)
       nameLabel.text = viewModel.name
     }
