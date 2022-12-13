@@ -139,7 +139,7 @@ public final class VenueListViewController: UIViewController {
     loadingIndicator.isHidden = true
     filtersButton.isHidden = false
     venuesCollectionView.isHidden = false
-    noVenuesFoundLabel.isHidden = false
+    noVenuesFoundLabel.isHidden = true
   }
 }
 

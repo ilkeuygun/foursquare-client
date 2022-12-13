@@ -9,18 +9,18 @@ import Foundation
 
 public struct VenueDetailsResponse: Decodable {
   
-  public let fsq_id: String
-  public let name: String
+  public let fsq_id: String?
+  public let name: String?
   public let location: Location
   public let geocodes: Geocode
   public let categories: [Category]
 }
 
 public struct Location: Decodable {
-  public let address: String
-  public let country: String
-  public let formatted_address: String
-  public let region: String
+  public let address: String?
+  public let country: String?
+  public let formatted_address: String?
+  public let region: String?
 }
 
 public struct Geocode: Decodable {
@@ -28,10 +28,10 @@ public struct Geocode: Decodable {
 }
 
 public struct Geolocation: Decodable {
-  public let latitude: Double
-  public let longitude: Double
+  public let latitude: Double?
+  public let longitude: Double?
 }
 
 public struct Category: Decodable {
-  public let name: String
+  public let name: String?
 }

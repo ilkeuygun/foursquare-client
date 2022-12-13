@@ -15,7 +15,8 @@ public struct VenuesQuery: HTTPTask {
   
   public init(lat: Double, lon: Double, radius: Int?) {
     urlQueryItems = [
-      URLQueryItem(name: "ll", value: "\(lat),\(lon)")
+      URLQueryItem(name: "ll", value: "\(lat),\(lon)"),
+      URLQueryItem(name: "limit", value: "50") // Default to 50 results
     ]
     if let radius = radius, radius > 0 && radius < 100000 {
       urlQueryItems?.append(URLQueryItem(name: "radius", value: "\(radius)"))
