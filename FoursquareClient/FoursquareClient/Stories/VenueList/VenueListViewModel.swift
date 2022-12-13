@@ -34,8 +34,10 @@ public final class VenueListViewModel: NSObject {
     return VenueCellViewModel(fsqId: venue.id, name: venue.name, link: venue.link, showsDarkBackground: index % 2 == 0)
   }
   
-  public func fetchVenuesAround() {
-    FCVenuesService.shared.getVenues(latitude: Double(userCoordinate?.latitude ?? 40.686), longitude: Double(userCoordinate?.longitude ?? 29.916)) { [weak self] venueList, errorCode in
+  public func fetchVenuesAround(radius: Int? = nil) {
+    FCVenuesService.shared.getVenues(latitude: Double(userCoordinate?.latitude ?? 40.686),
+                                     longitude: Double(userCoordinate?.longitude ?? 29.916),
+                                     radius: radius) { [weak self] venueList, errorCode in
       guard let self = self else { return }
       guard let venueList = venueList, !venueList.isEmpty else {
         self.delegate?.receivedError(with: "Venues cannot be fetched right now. Please try again later.")

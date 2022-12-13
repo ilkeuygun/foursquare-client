@@ -12,6 +12,6 @@ protocol FCRouter {
   func route(
     to routeID: String,
     from context: UIViewController,
-    parameters: VenueDetailsResponse
+    parameters: Any?
   )
 }

@@ -18,11 +18,19 @@ public final class VenuesRouter: FCRouter {
   func route(
     to routeID: String,
     from context: UIViewController,
-    parameters: VenueDetailsResponse)
+    parameters: Any?)
   {
-    let detailsViewModel = VenueDetailsViewModel(venueDetails: parameters)
-    let detailsViewController = VenueDetailsViewController(viewModel: detailsViewModel)
-    detailsViewController.viewModel = detailsViewModel
-    context.navigationController?.pushViewController(detailsViewController, animated: true)
+    if routeID == Route.details.rawValue {
+      guard let params = (parameters as? VenueDetailsResponse) else { return }
+      let detailsViewModel = VenueDetailsViewModel(venueDetails: params)
+      let detailsViewController = VenueDetailsViewController(viewModel: detailsViewModel)
+      detailsViewController.viewModel = detailsViewModel
+      context.navigationController?.pushViewController(detailsViewController, animated: true)
+    } else if routeID == Route.filters.rawValue {
+      guard let params = (parameters as? (String) -> Void) else { return }
+      let filtersViewController = FiltersViewController(completionHandler: params)
+      filtersViewController.modalPresentationStyle = .pageSheet
+      context.navigationController?.present(filtersViewController, animated: true)
+    }
   }
 }

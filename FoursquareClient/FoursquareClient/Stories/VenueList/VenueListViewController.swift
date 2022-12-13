@@ -7,11 +7,21 @@
 
 import UIKit
 
+public enum Route: String {
+  case details
+  case filters
+}
+
 public final class VenueListViewController: UIViewController {
-  
-  enum Route: String {
-    case details
-  }
+  lazy var filtersButton: UIButton = {
+    let button = UIButton()
+    button.setTitle("Filters", for: .normal)
+    button.setTitleColor(.blue, for: .normal)
+    button.isHidden = true
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.addTarget(self, action: #selector(didTapFiltersButton), for: .touchUpInside)
+    return button
+  }()
   
   lazy var venuesCollectionView: UICollectionView = {
     let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -67,17 +77,51 @@ public final class VenueListViewController: UIViewController {
     venuesCollectionView.register(VenueCollectionViewCell.self, forCellWithReuseIdentifier: "VenueCollectionViewCell")    
     view.addSubview(loadingIndicator)
     view.addSubview(venuesCollectionView)
+    view.addSubview(filtersButton)
     NSLayoutConstraint.activate([
       loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
     
     NSLayoutConstraint.activate([
-      venuesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+      filtersButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+      filtersButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      filtersButton.widthAnchor.constraint(equalToConstant: 62),
+      filtersButton.heightAnchor.constraint(equalToConstant: 34)
+    ])
+    
+    NSLayoutConstraint.activate([
+      venuesCollectionView.topAnchor.constraint(equalTo: filtersButton.bottomAnchor, constant: 16),
       venuesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       venuesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       venuesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
     ])
+  }
+  
+  @objc private func didTapFiltersButton() {
+    router.route(to: Route.filters.rawValue,
+                 from: self,
+                 parameters: { [weak self] radius in
+      guard let self = self else { return }
+      if let radiusValue = Int(radius) {
+        self.showLoading()
+        self.viewModel.fetchVenuesAround(radius: radiusValue)
+      }
+    })
+  }
+  
+  private func showLoading() {
+    loadingIndicator.startAnimating()
+    loadingIndicator.isHidden = false
+    filtersButton.isHidden = true
+    venuesCollectionView.isHidden = true
+  }
+  
+  private func stopLoading() {
+    loadingIndicator.stopAnimating()
+    loadingIndicator.isHidden = true
+    filtersButton.isHidden = false
+    venuesCollectionView.isHidden = false
   }
 }
 
@@ -85,9 +129,7 @@ public final class VenueListViewController: UIViewController {
 extension VenueListViewController: VenueListViewModelDelegate {
   
   func didFetchVenues() {
-    loadingIndicator.stopAnimating()
-    loadingIndicator.isHidden = true
-    venuesCollectionView.isHidden = false
+    stopLoading()
     venuesCollectionView.reloadData()
   }
   

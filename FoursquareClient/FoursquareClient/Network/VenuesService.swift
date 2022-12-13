@@ -12,7 +12,7 @@ public typealias VenueDetailsCompletion = (VenueDetailsResponse?, String?) -> ()
 
 public protocol VenuesService: AnyObject {
   
-  func getVenues(latitude: Double, longitude: Double, completion: @escaping GetVenuesCompletion)
+  func getVenues(latitude: Double, longitude: Double, radius: Int?, completion: @escaping GetVenuesCompletion)
   func getVenueDetails(of path: String, completion: @escaping VenueDetailsCompletion)
 }
 
@@ -22,8 +22,8 @@ public final class FCVenuesService: APIClient {
 
 extension FCVenuesService: VenuesService {
   
-  public func getVenues(latitude: Double, longitude: Double, completion: @escaping GetVenuesCompletion) {
-    let query = VenuesQuery(lat: latitude, lon: longitude)
+  public func getVenues(latitude: Double, longitude: Double, radius: Int?, completion: @escaping GetVenuesCompletion) {
+    let query = VenuesQuery(lat: latitude, lon: longitude, radius: radius)
     
     networkManager.fetch(query, type: GetVenuesResponse.self) { result in
       switch result {
