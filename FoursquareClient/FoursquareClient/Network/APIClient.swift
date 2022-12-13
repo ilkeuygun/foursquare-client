@@ -8,7 +8,7 @@
 import Foundation
 import Networking
 
-@objc public class APIClient: NSObject {
+@objc open class APIClient: NSObject {
   
   public let networkManager: NetworkManager
   

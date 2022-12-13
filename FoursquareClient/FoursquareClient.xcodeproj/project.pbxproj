@@ -33,6 +33,11 @@
 		1E09274E2946609D0092469E /* FCVenueAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09274D2946609D0092469E /* FCVenueAnnotation.swift */; };
 		1E09296429489A3C0092469E /* VenuesListScreenUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09296329489A3C0092469E /* VenuesListScreenUITest.swift */; };
 		1E0929662948B4840092469E /* VenueDetailScreenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0929652948B4840092469E /* VenueDetailScreenUITests.swift */; };
+		1E0929682948BDE80092469E /* MockVenuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0929672948BDE80092469E /* MockVenuesService.swift */; };
+		1E09296A2948BF7E0092469E /* GetPlacesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E0929692948BF7E0092469E /* GetPlacesResponse.json */; };
+		1E09296B2948C38B0092469E /* GetPlacesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E0929692948BF7E0092469E /* GetPlacesResponse.json */; };
+		1E09296D2948C5240092469E /* GetPlaceDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E09296C2948C5240092469E /* GetPlaceDetailResponse.json */; };
+		1E09296E2948C5320092469E /* GetPlaceDetailResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 1E09296C2948C5240092469E /* GetPlaceDetailResponse.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +89,9 @@
 		1E09274D2946609D0092469E /* FCVenueAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCVenueAnnotation.swift; sourceTree = "<group>"; };
 		1E09296329489A3C0092469E /* VenuesListScreenUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesListScreenUITest.swift; sourceTree = "<group>"; };
 		1E0929652948B4840092469E /* VenueDetailScreenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDetailScreenUITests.swift; sourceTree = "<group>"; };
+		1E0929672948BDE80092469E /* MockVenuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVenuesService.swift; sourceTree = "<group>"; };
+		1E0929692948BF7E0092469E /* GetPlacesResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlacesResponse.json; sourceTree = "<group>"; };
+		1E09296C2948C5240092469E /* GetPlaceDetailResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GetPlaceDetailResponse.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				1E0927002945E44F0092469E /* FoursquareClientTests.swift */,
+				1E0929672948BDE80092469E /* MockVenuesService.swift */,
 			);
 			path = FoursquareClientTests;
 			sourceTree = "<group>";
@@ -231,6 +240,8 @@
 			children = (
 				1E0927392945FC010092469E /* FCVenue.swift */,
 				1E09274D2946609D0092469E /* FCVenueAnnotation.swift */,
+				1E09296C2948C5240092469E /* GetPlaceDetailResponse.json */,
+				1E0929692948BF7E0092469E /* GetPlacesResponse.json */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,7 +379,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E09296B2948C38B0092469E /* GetPlacesResponse.json in Resources */,
 				1E0926F62945E44F0092469E /* LaunchScreen.storyboard in Resources */,
+				1E09296D2948C5240092469E /* GetPlaceDetailResponse.json in Resources */,
 				1E0926F32945E44F0092469E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +390,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E09296E2948C5320092469E /* GetPlaceDetailResponse.json in Resources */,
+				1E09296A2948BF7E0092469E /* GetPlacesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E0927012945E44F0092469E /* FoursquareClientTests.swift in Sources */,
+				1E0929682948BDE80092469E /* MockVenuesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

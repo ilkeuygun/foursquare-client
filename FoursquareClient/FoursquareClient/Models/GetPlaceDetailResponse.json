@@ -1,0 +1,34 @@
+{
+  "fsq_id": "5db05a348813f20007f59b44",
+  "categories": [
+    {
+      "id": 13065,
+      "name": "Restaurant",
+      "icon": {
+        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+        "suffix": ".png"
+      }
+    }
+  ],
+  "chains": [],
+  "geocodes": {
+    "main": {
+      "latitude": 40.712699,
+      "longitude": 29.913893
+    }
+  },
+  "link": "/v3/places/5db05a348813f20007f59b44",
+  "location": {
+    "address": "Körfez Mah",
+    "country": "TR",
+    "cross_street": "D130 Cad.",
+    "formatted_address": "Körfez Mah (D130 Cad.)",
+    "neighborhood": [
+      "Körfez"
+    ],
+    "region": "Kocaeli"
+  },
+  "name": "İkrambey",
+  "related_places": {},
+  "timezone": "Europe/Istanbul"
+}
