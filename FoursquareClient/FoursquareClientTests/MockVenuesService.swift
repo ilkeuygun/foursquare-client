@@ -13,7 +13,7 @@ public final class MockFCVenuesService: APIClient {
 }
 
 extension MockFCVenuesService: VenuesService {
-  public func getVenues(latitude: Double, longitude: Double, completion: @escaping FoursquareClient.GetVenuesCompletion) {
+  public func getVenues(latitude: Double, longitude: Double, radius: Int?, completion: @escaping FoursquareClient.GetVenuesCompletion) {
     let filePath = "GetPlacesResponse"
     MockFCVenuesService.loadJsonDataFromFile(filePath, completion: { data in
       if let json = data {

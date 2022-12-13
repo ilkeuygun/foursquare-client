@@ -31,7 +31,7 @@ final class FoursquareClientTests: XCTestCase {
     let foursquareService = MockFCVenuesService()
     
     // WHEN
-    foursquareService.getVenues(latitude: 40.0, longitude: 29.0) { venueList, errorCode in
+    foursquareService.getVenues(latitude: 40.0, longitude: 29.0, radius: 1000) { venueList, errorCode in
       guard let venueList = venueList else { return }
       self.venueList = venueList
     }
@@ -49,16 +49,8 @@ final class FoursquareClientTests: XCTestCase {
       self.venueDetailsResponse = detailsResponse
     }
     // THEN
-    XCTAssertTrue(!(self.venueDetailsResponse?.name.isEmpty ?? true))
-    XCTAssertTrue(!(self.venueDetailsResponse?.categories.first?.name.isEmpty ?? true))
-    XCTAssertTrue(!(self.venueDetailsResponse?.location.address.isEmpty ?? true))
+    XCTAssertTrue(!(self.venueDetailsResponse?.name?.isEmpty ?? true))
+    XCTAssertTrue(!(self.venueDetailsResponse?.categories.first?.name?.isEmpty ?? true))
+    XCTAssertTrue(!(self.venueDetailsResponse?.location.address?.isEmpty ?? true))
   }
-  
-  func testPerformanceExample() throws {
-    // This is an example of a performance test case.
-    self.measure {
-      // Put the code you want to measure the time of here.
-    }
-  }
-  
 }

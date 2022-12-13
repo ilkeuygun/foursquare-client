@@ -37,15 +37,17 @@ final class VenuesListScreenUITest: XCTestCase {
     XCTAssert(navigationTitle.waitForExistence(timeout: TimeInterval(10)))
   }
   
-  func testListScreenLoadingIndicatorVisible() throws {
-    startApp()
-    let loadingIndicator = app.activityIndicators.firstMatch
-    XCTAssertTrue(loadingIndicator.isEnabled)
-  }
-  
   func testListScreenVenuesCollectionVisible() throws {
     startApp()
     let venuesCollection = app.collectionViews.firstMatch
     XCTAssert(venuesCollection.waitForExistence(timeout: 10))
+  }
+  
+  func testFiltersButtonTap_FiltersScreenLoad() throws {
+    startApp()
+    let filterButton = app.buttons["Filters"].firstMatch
+    filterButton.tap()
+    let filterScreenTitle = app.staticTexts["Filter Options"].firstMatch
+    XCTAssert(filterScreenTitle.waitForExistence(timeout: 10))
   }
 }
