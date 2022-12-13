@@ -24,7 +24,14 @@ public struct VenueCellViewModel {
 
 public final class VenueCollectionViewCell: UICollectionViewCell {
   
-  @IBOutlet weak var nameLabel: UILabel!
+  lazy var nameLabel: UILabel = {
+    let label = UILabel()
+    label.textColor = .black
+    label.backgroundColor = .clear
+    label.font = .systemFont(ofSize: CGFloat(16), weight: .semibold)
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
   
   public var viewModel: VenueCellViewModel? {
     didSet {
@@ -34,21 +41,26 @@ public final class VenueCollectionViewCell: UICollectionViewCell {
       backgroundColor = .clear
       contentView.backgroundColor = viewModel.showsDarkBackground ? .lightGray : .white
       contentView.layer.cornerRadius = CGFloat(8)
-      
-      nameLabel.textColor = .black
-      nameLabel.backgroundColor = .clear
-      nameLabel.font = .systemFont(ofSize: CGFloat(16), weight: .semibold)
       nameLabel.text = viewModel.name
     }
   }
   
-  public override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-    setNeedsLayout()
-    layoutIfNeeded()
-    let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
-    var frame = layoutAttributes.frame
-    frame.size.height = ceil(size.height)
-    layoutAttributes.frame = frame
-    return layoutAttributes
+  public override init(frame: CGRect) {
+    super.init(frame: frame)
+    setupSubviews()
+  }
+  
+  public required init?(coder: NSCoder) {
+    super.init(coder: coder)
+  }
+  
+  private func setupSubviews() {
+    contentView.addSubview(nameLabel)
+    NSLayoutConstraint.activate([
+      nameLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 16),
+      nameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+      nameLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+      nameLabel.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+    ])
   }
 }

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E0926EA2945E44D0092469E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0926E92945E44D0092469E /* AppDelegate.swift */; };
 		1E0926EC2945E44D0092469E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0926EB2945E44D0092469E /* SceneDelegate.swift */; };
-		1E0926F12945E44D0092469E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926EF2945E44D0092469E /* Main.storyboard */; };
 		1E0926F32945E44F0092469E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926F22945E44F0092469E /* Assets.xcassets */; };
 		1E0926F62945E44F0092469E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E0926F42945E44F0092469E /* LaunchScreen.storyboard */; };
 		1E0927012945E44F0092469E /* FoursquareClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927002945E44F0092469E /* FoursquareClientTests.swift */; };
@@ -18,7 +17,6 @@
 		1E09271C2945E5A90092469E /* VenueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09271B2945E5A90092469E /* VenueListViewController.swift */; };
 		1E09271E2945E6A50092469E /* VenueListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E09271D2945E6A50092469E /* VenueListViewModel.swift */; };
 		1E0927212945E8860092469E /* VenueCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927202945E8860092469E /* VenueCollectionViewCell.swift */; };
-		1E0927232945EB780092469E /* VenueCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E0927222945EB780092469E /* VenueCollectionViewCell.xib */; };
 		1E09272A2945F81F0092469E /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927292945F81F0092469E /* APIClient.swift */; };
 		1E0927312945F9FF0092469E /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 1E0927302945F9FF0092469E /* Networking */; };
 		1E0927332945FA320092469E /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0927322945FA320092469E /* HTTPTask.swift */; };
@@ -56,7 +54,6 @@
 		1E0926E62945E44D0092469E /* FoursquareClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoursquareClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E0926E92945E44D0092469E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E0926EB2945E44D0092469E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E0926F02945E44D0092469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E0926F22945E44F0092469E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E0926F52945E44F0092469E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E0926F72945E44F0092469E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +65,6 @@
 		1E09271B2945E5A90092469E /* VenueListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewController.swift; sourceTree = "<group>"; };
 		1E09271D2945E6A50092469E /* VenueListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueListViewModel.swift; sourceTree = "<group>"; };
 		1E0927202945E8860092469E /* VenueCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCollectionViewCell.swift; sourceTree = "<group>"; };
-		1E0927222945EB780092469E /* VenueCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueCollectionViewCell.xib; sourceTree = "<group>"; };
 		1E0927292945F81F0092469E /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		1E09272D2945F8F20092469E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Networking/Package.swift; sourceTree = "<group>"; };
 		1E09272F2945F9AB0092469E /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
@@ -144,7 +140,6 @@
 				1E0926F22945E44F0092469E /* Assets.xcassets */,
 				1E0926F72945E44F0092469E /* Info.plist */,
 				1E0926F42945E44F0092469E /* LaunchScreen.storyboard */,
-				1E0926EF2945E44D0092469E /* Main.storyboard */,
 				1E0926EB2945E44D0092469E /* SceneDelegate.swift */,
 				1E0927192945E58E0092469E /* Stories */,
 				1E09271F2945E8700092469E /* Views */,
@@ -192,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				1E0927202945E8860092469E /* VenueCollectionViewCell.swift */,
-				1E0927222945EB780092469E /* VenueCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -362,8 +356,6 @@
 			files = (
 				1E0926F62945E44F0092469E /* LaunchScreen.storyboard in Resources */,
 				1E0926F32945E44F0092469E /* Assets.xcassets in Resources */,
-				1E0927232945EB780092469E /* VenueCollectionViewCell.xib in Resources */,
-				1E0926F12945E44D0092469E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,14 +434,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1E0926EF2945E44D0092469E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E0926F02945E44D0092469E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1E0926F42945E44F0092469E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -588,7 +572,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -618,7 +601,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

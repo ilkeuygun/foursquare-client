@@ -13,8 +13,25 @@ public final class VenueListViewController: UIViewController {
     case details
   }
   
-  @IBOutlet weak var venuesCollectionView: UICollectionView!
-  @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+  lazy var venuesCollectionView: UICollectionView = {
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    layout.scrollDirection = .vertical
+    layout.sectionInset = UIEdgeInsets(top: 16, left: 8, bottom: 0, right: 16)
+    let collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+    collectionView.dataSource = self
+    collectionView.delegate = self
+    collectionView.isHidden = true
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    return collectionView
+  }()
+  
+  lazy var loadingIndicator: UIActivityIndicatorView = {
+    let activityIndicator = UIActivityIndicatorView(style: .medium)
+    activityIndicator.color = .black
+    activityIndicator.startAnimating()
+    activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+    return activityIndicator
+  }()
   
   private let viewModel: VenueListViewModel
   private let router: VenuesRouter
@@ -29,18 +46,37 @@ public final class VenueListViewController: UIViewController {
     self.viewModel = VenueListViewModel()
     self.router = VenuesRouter(viewModel: viewModel)
     super.init(coder: coder)
+  }
+  
+  public override func loadView() {
+    let view = UIView()
+    self.view = view
+    self.view.backgroundColor = .white
     viewModel.delegate = self
   }
   
   public override func viewDidLoad() {
     super.viewDidLoad()
-    self.navigationItem.title = "Venues Around"
-    loadingIndicator.isHidden = false
-    loadingIndicator.startAnimating()
-    venuesCollectionView.dataSource = self
-    venuesCollectionView.delegate = self
-    venuesCollectionView.register(UINib(nibName: "VenueCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "VenueCollectionViewCell")
+    setupSubviews()
     viewModel.fetchVenuesAround()
+  }
+  
+  private func setupSubviews() {
+    self.navigationItem.title = "Venues Around"
+    venuesCollectionView.register(VenueCollectionViewCell.self, forCellWithReuseIdentifier: "VenueCollectionViewCell")    
+    view.addSubview(loadingIndicator)
+    view.addSubview(venuesCollectionView)
+    NSLayoutConstraint.activate([
+      loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
+    
+    NSLayoutConstraint.activate([
+      venuesCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
+      venuesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      venuesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      venuesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
   }
 }
 
@@ -50,6 +86,7 @@ extension VenueListViewController: VenueListViewModelDelegate {
   func didFetchVenues() {
     loadingIndicator.stopAnimating()
     loadingIndicator.isHidden = true
+    venuesCollectionView.isHidden = false
     venuesCollectionView.reloadData()
   }
   
@@ -99,7 +136,7 @@ extension VenueListViewController: UICollectionViewDelegate {
     viewModel.fetchDetails(of: link)
   }
 }
-  
+
 // MARK: - UICollectionViewDelegateFlowLayout
 extension VenueListViewController: UICollectionViewDelegateFlowLayout {
   public func collectionView(

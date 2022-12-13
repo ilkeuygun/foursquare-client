@@ -21,8 +21,7 @@ public final class VenuesRouter: FCRouter {
     parameters: VenueDetailsResponse)
   {
     let detailsViewModel = VenueDetailsViewModel(venueDetails: parameters)
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    guard let detailsViewController = storyboard.instantiateViewController(withIdentifier: "VenueDetails") as? VenueDetailsViewController else { return }
+    let detailsViewController = VenueDetailsViewController(viewModel: detailsViewModel)
     detailsViewController.viewModel = detailsViewModel
     context.navigationController?.pushViewController(detailsViewController, animated: true)
   }
