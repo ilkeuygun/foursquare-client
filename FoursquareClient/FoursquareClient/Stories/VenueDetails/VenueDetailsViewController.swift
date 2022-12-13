@@ -28,6 +28,7 @@ public final class VenueDetailsViewController: UIViewController {
     let label = UILabel()
     label.text = "Category:"
     label.font = .boldSystemFont(ofSize: 17)
+    label.textColor = .black
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -35,6 +36,7 @@ public final class VenueDetailsViewController: UIViewController {
   lazy var categoryValueLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
+    label.textColor = .black
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -43,6 +45,7 @@ public final class VenueDetailsViewController: UIViewController {
     let label = UILabel()
     label.text = "Address:"
     label.font = .boldSystemFont(ofSize: 17)
+    label.textColor = .black
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -50,6 +53,7 @@ public final class VenueDetailsViewController: UIViewController {
   lazy var addressValueLabel: UILabel = {
     let label = UILabel()
     label.numberOfLines = 0
+    label.textColor = .black
     label.translatesAutoresizingMaskIntoConstraints = false
     return label
   }()
@@ -74,6 +78,8 @@ public final class VenueDetailsViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
     self.navigationItem.title = viewModel?.venueDetails.name
+    let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+    navigationController?.navigationBar.titleTextAttributes = textAttributes
     setupSubviews()
   }
   

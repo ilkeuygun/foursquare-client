@@ -19,14 +19,13 @@ public final class VenueListViewModel: NSObject {
   
   public var venueList: [FCVenue]?
   
-  // TODO (Ilke): Make these a single observable coord.
-  private var userLatitude: Double?
-  private var userLongitude: Double?
-  
-  override init() {
-    super.init()
+  private var userCoordinate: CLLocationCoordinate2D?
+
+  public func trackUserLocation() {
     let locationManager = CLLocationManager()
     locationManager.delegate = self
+    locationManager.requestAlwaysAuthorization()
+    locationManager.requestWhenInUseAuthorization()
     locationManager.requestLocation()
   }
   
@@ -36,7 +35,7 @@ public final class VenueListViewModel: NSObject {
   }
   
   public func fetchVenuesAround() {
-    FCVenuesService.shared.getVenues(latitude: userLatitude ?? 40.686, longitude: userLongitude ?? 29.916) { [weak self] venueList, errorCode in
+    FCVenuesService.shared.getVenues(latitude: Double(userCoordinate?.latitude ?? 40.686), longitude: Double(userCoordinate?.longitude ?? 29.916)) { [weak self] venueList, errorCode in
       guard let self = self else { return }
       guard let venueList = venueList, !venueList.isEmpty else {
         self.delegate?.receivedError(with: "Venues cannot be fetched right now. Please try again later.")
@@ -61,15 +60,20 @@ public final class VenueListViewModel: NSObject {
 
 extension VenueListViewModel: CLLocationManagerDelegate {
   
+  public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    if manager.authorizationStatus == .authorizedAlways || manager.authorizationStatus == .authorizedWhenInUse {
+      manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+      manager.requestLocation()
+    }
+  }
+  
   public func locationManager(
     _ manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]
   ) {
     if let location = locations.first {
-      let latitude = location.coordinate.latitude
-      let longitude = location.coordinate.longitude
-      userLatitude = latitude.binade
-      userLongitude = longitude.binade
+      userCoordinate = location.coordinate
+      fetchVenuesAround()
     }
   }
   

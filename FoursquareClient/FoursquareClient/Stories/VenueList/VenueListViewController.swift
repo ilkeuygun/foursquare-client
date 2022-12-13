@@ -21,6 +21,7 @@ public final class VenueListViewController: UIViewController {
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.isHidden = true
+    collectionView.backgroundColor = .white
     collectionView.translatesAutoresizingMaskIntoConstraints = false
     return collectionView
   }()
@@ -58,7 +59,7 @@ public final class VenueListViewController: UIViewController {
   public override func viewDidLoad() {
     super.viewDidLoad()
     setupSubviews()
-    viewModel.fetchVenuesAround()
+    viewModel.trackUserLocation()
   }
   
   private func setupSubviews() {
