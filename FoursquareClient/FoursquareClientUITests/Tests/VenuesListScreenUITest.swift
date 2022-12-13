@@ -9,6 +9,8 @@ import XCTest
 
 final class VenuesListScreenUITest: XCTestCase {
   
+  let app = XCUIApplication()
+  
   override func setUpWithError() throws {
     continueAfterFailure = false
   }
@@ -16,30 +18,33 @@ final class VenuesListScreenUITest: XCTestCase {
   override func tearDownWithError() throws {
   }
   
-  private func dismissLocationPermissionAlert() {
-    let app = XCUIApplication()
+  private func startApp() {
+    app.launch()
+    dismissLocationPermissionAlertIfVisible()
+  }
+  
+  private func dismissLocationPermissionAlertIfVisible() {
     let button = app.alerts.firstMatch.buttons["Allow While Using App"]
-    button.waitForExistence(timeout: 10)
-    button.tap()
+    _ = button.waitForExistence(timeout: TimeInterval(3))
+    if button.exists && button.isHittable {
+      button.tap()
+    }
   }
   
   func testListScreenLoad() throws {
-    let app = XCUIApplication()
-    app.launch()
+    startApp()
     let navigationTitle = app.staticTexts["Venues Around"].firstMatch
     XCTAssert(navigationTitle.waitForExistence(timeout: TimeInterval(10)))
   }
   
   func testListScreenLoadingIndicatorVisible() throws {
-    let app = XCUIApplication()
-    app.launch()
+    startApp()
     let loadingIndicator = app.activityIndicators.firstMatch
     XCTAssertTrue(loadingIndicator.isEnabled)
   }
   
   func testListScreenVenuesCollectionVisible() throws {
-    let app = XCUIApplication()
-    app.launch()
+    startApp()
     let venuesCollection = app.collectionViews.firstMatch
     XCTAssert(venuesCollection.waitForExistence(timeout: 10))
   }
