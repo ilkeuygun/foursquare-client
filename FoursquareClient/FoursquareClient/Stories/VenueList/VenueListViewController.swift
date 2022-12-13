@@ -36,6 +36,16 @@ public final class VenueListViewController: UIViewController {
     return collectionView
   }()
   
+  lazy var noVenuesFoundLabel: UILabel = {
+    let label = UILabel()
+    label.numberOfLines = 0
+    label.textColor = .black
+    label.text = "No venues find. Please try with a wider range."
+    label.isHidden = true
+    label.translatesAutoresizingMaskIntoConstraints = false
+    return label
+  }()
+  
   lazy var loadingIndicator: UIActivityIndicatorView = {
     let activityIndicator = UIActivityIndicatorView(style: .medium)
     activityIndicator.color = .black
@@ -75,9 +85,10 @@ public final class VenueListViewController: UIViewController {
   private func setupSubviews() {
     self.navigationItem.title = "Venues Around"
     venuesCollectionView.register(VenueCollectionViewCell.self, forCellWithReuseIdentifier: "VenueCollectionViewCell")    
+    view.addSubview(filtersButton)
     view.addSubview(loadingIndicator)
     view.addSubview(venuesCollectionView)
-    view.addSubview(filtersButton)
+    view.addSubview(noVenuesFoundLabel)
     NSLayoutConstraint.activate([
       loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       loadingIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
@@ -95,6 +106,11 @@ public final class VenueListViewController: UIViewController {
       venuesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       venuesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       venuesCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
+    
+    NSLayoutConstraint.activate([
+      noVenuesFoundLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      noVenuesFoundLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
     ])
   }
   
@@ -115,6 +131,7 @@ public final class VenueListViewController: UIViewController {
     loadingIndicator.isHidden = false
     filtersButton.isHidden = true
     venuesCollectionView.isHidden = true
+    noVenuesFoundLabel.isHidden = true
   }
   
   private func stopLoading() {
@@ -122,6 +139,7 @@ public final class VenueListViewController: UIViewController {
     loadingIndicator.isHidden = true
     filtersButton.isHidden = false
     venuesCollectionView.isHidden = false
+    noVenuesFoundLabel.isHidden = false
   }
 }
 
@@ -130,7 +148,12 @@ extension VenueListViewController: VenueListViewModelDelegate {
   
   func didFetchVenues() {
     stopLoading()
-    venuesCollectionView.reloadData()
+    if let venueList = viewModel.venueList, !venueList.isEmpty {
+      venuesCollectionView.reloadData()
+    } else {
+      venuesCollectionView.isHidden = true
+      noVenuesFoundLabel.isHidden = false
+    }
   }
   
   func receivedError(with description: String) {

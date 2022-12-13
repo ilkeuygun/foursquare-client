@@ -39,7 +39,7 @@ public final class VenueListViewModel: NSObject {
                                      longitude: Double(userCoordinate?.longitude ?? 29.916),
                                      radius: radius) { [weak self] venueList, errorCode in
       guard let self = self else { return }
-      guard let venueList = venueList, !venueList.isEmpty else {
+      guard let venueList = venueList else {
         self.delegate?.receivedError(with: "Venues cannot be fetched right now. Please try again later.")
         return
       }
